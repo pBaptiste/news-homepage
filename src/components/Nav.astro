@@ -76,12 +76,6 @@ const navLinks = [
             body.style.overflow = isMobileMenuVisible ? 'hidden' : '';
         }
 
-        function closeMobileMenuOnOutsideClick(event: any) {
-        if (mobileMenu.classList.contains('visible') && !mobileMenu.contains(event.target)) {
-            toggleMobileMenu();
-        }
-    }
-
         menuBtn?.addEventListener('click', toggleMobileMenu);
         closeBtn?.addEventListener('click', toggleMobileMenu);
        
