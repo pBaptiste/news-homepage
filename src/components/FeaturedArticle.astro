@@ -1,0 +1,19 @@
+---
+import ResponsiveImage from "./ResponsiveImage.astro"
+import illustrationMobile from '../images/image-web-3-mobile.jpg'
+import illustrationDesktop from '../images/image-web-3-desktop.jpg'
+---
+
+<section class="mb-16 desktop:mb-0 desktop:max-w-[730px]">
+    <div class="w-[343px] desktop:w-[730px] h-[300px] mb-6 desktop:mb-[28px]">
+       <ResponsiveImage imgMobile={illustrationMobile} imgDesktop={illustrationDesktop} alt="Featured Article" customStyles="w-full h-full object-cover"/>
+    </div>
+
+    <div class="grid gap-4 desktop:grid-cols-2">
+        <h1 class="text-dark-space-blue text-[2.5rem] desktop:text-[3.5rem] font-extrabold leading-10 desktop:leading-[3.5rem] desktop:max-w-[350px]">The Bright Future of Web 3.0?</h1>
+        <div class="">
+            <p class="text-gun-metal text-[.938rem] font-normal leading-[1.625rem] desktop:max-w-[350px] mb-6 desktop:mb-[29px] ">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p>
+            <a href="#" class="pt-[13px] pb-[11px] pr-[35px] pl-[31px] text-almost-white text-sm font-bold leading-6 tracking-[4.375px] bg-light-vermillion hover:bg-dark-space-blue focus:bg-dark-space-blue outline-none transition-colors duration-500 uppercase">Read More</a>
+        </div>
+    </div>
+</section>

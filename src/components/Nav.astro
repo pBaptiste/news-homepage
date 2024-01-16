@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+import logo from '../images/logo.svg'
+import hamburger from '../images/icon-menu.svg'
+import close from '../images/icon-menu-close.svg'
+
+const navLinks = [
+    { label : 'Home', link : '#' },
+    { label : 'New', link : '#' },
+    { label : 'Popular', link : '#' },
+    { label : 'Trending', link : '#' },
+    { label : 'Categories', link : '#' },
+]
+---
+<header class="pt-7 desktop:pt-[89px] pb-8 desktop:pb-[55.1px]">
+    <nav class="flex justify-between items-center">
+        <div class="w-[44.977px] h-[28px] desktop:w-[64.092px] desktop:h-[39.9px]">
+            <Image src={logo} alt="Site Logo" class='w-full h-full object-cover'/>
+        </div>
+
+        <button type="button" aria-label="Open Mobile Navigation Menu" id="open" class="desktop:hidden">
+            <Image src={hamburger} alt=''/>
+        </button>
+
+        <ul class="hidden desktop:flex gap-10">
+            {
+                navLinks.map(item => (
+                    <li>
+                        <a href={item.link} class="text-gun-metal hover:text-light-vermillion focus:text-light-vermillion outline-none transition-colors duration-300 text-[.938rem] font-normal leading-[1.625rem]">{item.label}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+
+    <div id="mobile" class="absolute hidden top-0 left-0 w-screen h-screen bg-dark-space-blue bg-opacity-50">
+        <nav class="absolute flex top-0 right-0 flex-col h-screen w-[256px] bg-almost-white pt-[27.3px] pl-6 pr-[20.8px]">
+            <button type="button" id="close" aria-label="Close Mobile Navigation Menu" class="self-end mb-[86.3px]">
+                <Image src={close} alt=''/>
+            </button>
+
+            <ul class="flex flex-col gap-6">
+                {
+                    navLinks.map(item => (
+                        <li>
+                            <a href={item.link} class="text-dark-space-blue hover:text-light-vermillion focus:text-light-vermillion outline-none text-[1.125rem] font-normal leading-6">{item.label}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+    </div>
+   
+</header>
+
+<style>
+    .no-scroll {
+        overflow: hidden;
+    }
+
+    .visible {
+        display: block;
+    }
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('open');
+        const closeBtn = document.getElementById('close');
+        const mobileMenu = document.getElementById('mobile') as HTMLElement;
+        const body = document.body;
+
+        function toggleMobileMenu() {
+            const isMobileMenuVisible = mobileMenu?.classList.toggle('visible');
+
+            body.style.overflow = isMobileMenuVisible ? 'hidden' : '';
+        }
+
+        function closeMobileMenuOnOutsideClick(event: any) {
+        if (mobileMenu.classList.contains('visible') && !mobileMenu.contains(event.target)) {
+            toggleMobileMenu();
+        }
+    }
+
+        menuBtn?.addEventListener('click', toggleMobileMenu);
+        closeBtn?.addEventListener('click', toggleMobileMenu);
+       
+    })
+</script>

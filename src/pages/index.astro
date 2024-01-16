@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeaturedArticle from '../components/FeaturedArticle.astro';
+import Nav from '../components/Nav.astro';
+import NewStories from '../components/NewStories.astro'
+import ArticleList from '../components/ArticleList.astro'
+---
+
+<Layout title="News Homepage">
+	<main class="min-h-screen flex justify-center">
+		<div class="max-w-[343px] desktop:max-w-[1110px]">
+			<Nav />
+			<div class="flex flex-col desktop:flex-row desktop:gap-[30px] desktop:mb-[72px]">
+				<FeaturedArticle />
+				<NewStories />
+			</div>
+			<ArticleList />
+		</div>
+	</main>
+</Layout>
+

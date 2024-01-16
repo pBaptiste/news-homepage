@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+const { cardImg, number, title, desc } = Astro.props;
+---
+<article class="flex gap-6 items-center">
+    <div class="w-[100px] h-[127px] flex-none">
+        <Image src={cardImg} alt="" />
+    </div>
+    <div>
+        <p class="text-silver text-[2rem] font-bold leading-8 mb-3">{number}</p>
+        <h4>
+            <a href="#" class="text-dark-space-blue text-[1.125rem] font-extrabold leading-6 mb-[9px] hover:text-light-vermillion focus:text-light-vermillion outline-none transition-colors duration-300
+            ">{title}</a>
+            <p class="text-gun-metal text-[.938rem] font-normal leading-[1.625rem]">{desc}</p>
+        </h4>
+    </div>
+</article>
